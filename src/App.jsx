@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SearchBar from "./components/SearchBar";
 import WeatherCard from "./components/WeatherCard";
 import ForecastStrip from "./components/ForecastStrip";
@@ -12,6 +12,17 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [lastQuery, setLastQuery] = useState("");
+  const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("theme");
+    if (saved === "dark") setDark(true);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("theme", dark ? "dark" : "light");
+    document.documentElement.classList.toggle("dark", dark);
+  }, [dark]);
 
   async function fetchWeather(city) {
     setLoading(true);
