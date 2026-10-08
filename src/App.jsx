@@ -12,12 +12,13 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [lastQuery, setLastQuery] = useState("");
-  const [dark, setDark] = useState(false);
-
-  useEffect(() => {
+  const [dark, setDark] = useState(() => {
     const saved = localStorage.getItem("theme");
-    if (saved === "dark") setDark(true);
-  }, []);
+    if (saved === "dark" || saved === "light") {
+      return saved === "dark";
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  });
 
   useEffect(() => {
     localStorage.setItem("theme", dark ? "dark" : "light");
@@ -75,6 +76,13 @@ export default function App() {
           background shifts to match the real sky.
         </p>
         <SearchBar onSearch={fetchWeather} loading={loading} />
+        <button
+          type="button"
+          aria-label="Toggle dark mode"
+          onClick={() => setDark(d => !d)}
+        >
+          Toggle Theme
+        </button>
       </header>
 
       <main>
