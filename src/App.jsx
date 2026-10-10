@@ -78,10 +78,11 @@ export default function App() {
         <SearchBar onSearch={fetchWeather} loading={loading} />
         <button
           type="button"
-          aria-label="Toggle dark mode"
+          aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
           onClick={() => setDark(d => !d)}
+          className="theme-toggle"
         >
-          Toggle Theme
+          {dark ? "☀️ Light" : "🌙 Dark"}
         </button>
       </header>
 
