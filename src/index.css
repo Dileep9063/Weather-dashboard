@@ -393,6 +393,163 @@ button {
 }
 
 /* ==========================================================================
+   Authentication pages (login / register)
+   ========================================================================== */
+.login-container,
+.auth-landing {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+}
+
+.auth-landing-card {
+  text-align: center;
+  background: white;
+  padding: 48px 36px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  border: 1.5px solid var(--line);
+  max-width: 440px;
+  width: 100%;
+}
+
+.auth-landing-card h1 {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  letter-spacing: -0.01em;
+}
+
+.auth-landing-card .subtitle {
+  color: var(--slate);
+}
+
+.auth-button {
+  margin-top: 14px;
+  padding: 13px 24px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.92rem;
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.auth-button.primary {
+  background: var(--ink);
+  color: white;
+}
+
+.auth-button.primary:hover {
+  background: var(--slate);
+}
+
+.auth-button.secondary {
+  background: var(--paper);
+  color: var(--ink);
+  border: 1.5px solid var(--line);
+}
+
+.auth-button.secondary:hover {
+  background: var(--mist);
+  border-color: var(--slate);
+}
+
+/* Login / register form card */
+.login-card h2 {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.form-group input {
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--line);
+  background: white;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.form-group input::placeholder {
+  color: #9a9bb5;
+}
+
+.error-message {
+  text-align: center;
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  color: #9A3B3B;
+  background: #FBEEEE;
+  border: 1.5px solid #E7C2C2;
+}
+
+.login-button {
+  margin-top: 6px;
+  padding: 13px 22px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: var(--ink);
+  color: white;
+  font-weight: 600;
+  font-size: 0.92rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+
+.login-button:hover:not(:disabled) {
+  background: var(--slate);
+}
+
+.login-button:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.login-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.signup-link {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--slate);
+}
+
+.signup-link a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
    Footer
    ========================================================================== */
 .app-footer {
@@ -400,6 +557,39 @@ button {
   font-size: 0.78rem;
   color: var(--slate);
   opacity: 0.7;
+}
+
+/* Header actions for authenticated users */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.user-greeting {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.auth-logout {
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.82rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.auth-logout:hover {
+  border-color: var(--slate);
+  background: var(--mist);
 }
 
 /* ==========================================================================
