@@ -73,8 +73,22 @@ src/
     SearchBar.jsx       # City search input
     WeatherCard.jsx      # Hero card: current conditions
     ForecastStrip.jsx    # 5-day forecast strip
+    Login.jsx            # Login form component
+    Register.jsx         # Registration form component
   utils/
     weatherTheme.js       # Maps weather codes to gradients/labels
-  App.jsx                 # Fetch logic + layout
+    auth.js              # Authentication utility functions
+  App_auth.jsx             # Main app with auth state management
   index.css                # Design tokens + all styling
+backend/
+  server.js                # Express server entry point
+  config/
+    db.js                   # MongoDB connection
+    jwt.js                  # JWT token generation/verification
+  middleware/
+    auth.js                 # JWT authentication middleware
+  routes/
+    auth.js                 # Auth routes (register, login, profile)
+  models/
+    User.js                 # User Mongoose model
 ```
